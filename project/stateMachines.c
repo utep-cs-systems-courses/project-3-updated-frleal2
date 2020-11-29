@@ -18,6 +18,7 @@ void state_init(){
 void state_advance(){
   switch (switch_state){
   case 1:
+    drawMario(50,50, COLOR_BLACK);
     toggle_led = LED_GREEN;
     play_note();
     break;
