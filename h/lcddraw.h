@@ -5,7 +5,9 @@
 #ifndef lcddraw_included
 #define lcddraw_included
 
-/** Draw single pixel at x,row 
+void drawMario(u_char column, u_char rows, u_int bgColorBGR);
+
+/** Draw single pixel at col, row 
  *
  *  \param col Column to draw to
  *  \param row Row to draw to
@@ -61,5 +63,3 @@ void drawChar5x7(u_char col, u_char row, char c,
 void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
 		     u_int colorBGR);
 #endif // included
-
-
