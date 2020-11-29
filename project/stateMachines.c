@@ -7,6 +7,7 @@
 unsigned char toggle_led;
 
 void state_init(){
+  
   switch_state = 0;
   toggle_led = LED_GREEN | LED_RED;
   led_update();

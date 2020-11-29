@@ -17,6 +17,32 @@ void drawPixel(u_char col, u_char row, u_int colorBGR)
   lcd_writeColor(colorBGR);
 }
 
+//draw mario
+void drawMario(u_char column, u_char rows, u_int bgColorBGR){
+  u_char col;
+  u_char row;
+
+  for(row = 0; row < 16; row++){
+    for(col = 0; col < 13; col++){
+      
+      if(mario[row][col] == 0) drawPixel(col + column, row + rows, bgColorBGR);
+      
+      else if(mario[row][col] == 1) drawPixel(col + column, row + rows, COLOR_RED);
+
+      else if(mario[row][col] == 2) drawPixel(col + column, row + rows, COLOR_BROWN);
+
+      else if(mario[row][col] == 3) drawPixel(col + column, row + rows, COLOR_TAN);
+
+      else if(mario[row][col] == 4) drawPixel(col + column, row + rows, COLOR_BLACK);
+
+      else if(mario[row][col] == 5) drawPixel(col + column, row + rows, COLOR_BLUE);
+
+      else if(mario[row][col] == 6) drawPixel(col + column, row + rows, COLOR_YELLOW);
+    }
+  }
+}
+    
+
 /** Fill rectangle
  *
  *  \param colMin Column start
