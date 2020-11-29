@@ -14,10 +14,14 @@ main()
   lcd_init();
   u_char width = screenWidth, height = screenHeight;
 
-  clearScreen(COLOR_BLUE);
+  clearScreen(COLOR_WHITE);
 
-  drawString5x7(20,20, "hello", COLOR_GREEN, COLOR_RED);
+  drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
 
-  fillRectangle(30,30, 60, 60, COLOR_ORANGE);
-  
+  fillRectangle(0,120, 150, 60, COLOR_GREEN);
+
+  fillRectangle(20,75, 10, 10, COLOR_BROWN);
+
+  drawMario(10,100, COLOR_WHITE);
 }
+
