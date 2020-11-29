@@ -10,7 +10,7 @@
 typedef unsigned char u_char;
 typedef unsigned int u_int;
 
-extern const unsgined int mario[13][16];
+extern const unsigned int mario[13][16];
 
 extern const unsigned char font_5x7[96][5];
 extern const unsigned char font_8x12[95][12];
