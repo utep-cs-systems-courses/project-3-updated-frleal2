@@ -62,6 +62,52 @@ void drawMario(u_char column, u_char rows, u_int bgColorBGR){
     row++;
   }
 }
+
+//draw luigi
+void drawLuigi(u_char column, u_char rows, u_int bgColorBGR){
+  u_char col = 0;
+  
+  u_char row = 0;
+
+  while(row < 16){
+
+    col = 0;
+    
+    while(col < 16){
+      
+      if(mario[row][col] == 0){
+	drawPixel(col + column, row + rows, bgColorBGR);
+      }
+      
+      else if(mario[row][col] == 1){
+	drawPixel(col + column, row + rows, COLOR_GREEN);
+      }
+
+      else if(mario[row][col] == 2){
+	drawPixel(col + column, row + rows, COLOR_BROWN);
+      }
+
+      else if(mario[row][col] == 3){
+	drawPixel(col + column, row + rows, COLOR_TAN);
+      }
+
+      else if(mario[row][col] == 4){
+	drawPixel(col + column, row + rows, COLOR_BLACK);
+      }
+
+      else if(mario[row][col] == 5) {
+	drawPixel(col + column, row + rows, COLOR_BLUE);
+      }
+
+      else if(mario[row][col] == 6){
+	drawPixel(col + column, row + rows, COLOR_YELLOW);
+      }
+
+      col++;
+    }
+    row++;
+  }
+}
     
 
 /** Fill rectangle
