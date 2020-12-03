@@ -14,48 +14,48 @@ void state_init(){
   toggle_led = LED_GREEN | LED_RED;
   led_update();
 }
-void firstScreen(){
+void firstScreen(){ //This will draw mario traversing through the plane 
   static char color = 1;
 
   switch(color){
   case 1:
+    fillRectangle(2, 75, 10, 10, COLOR_WHITE);
     drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
     fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    fillRectangle(75, 75, 10, 10, COLOR_BROWN);
+    fillRectangle(125, 75, 10, 10, COLOR_BROWN);
     drawMario(10,100, COLOR_WHITE);
-     
-    toggle_led = LED_GREEN;
-    play_note();
+    
+  
     color++;
     break;
   case 2:
-    clearScreen(COLOR_WHITE);
+    fillRectangle(125, 75, 10, 10, COLOR_WHITE);
     drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
     fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    fillRectangle(60, 75, 10, 10, COLOR_BROWN);
+    fillRectangle(65, 75, 10, 10, COLOR_BROWN);
     drawMario(10,100, COLOR_WHITE);
     
-    toggle_led = LED_RED;
-    play_note();
+
     color++;
     break;
   case 3:
+    fillRectangle(65, 75, 10, 10, COLOR_WHITE);
     drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
     fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    fillRectangle(45, 75, 10, 10, COLOR_BROWN);
+    fillRectangle(35, 75, 10, 10, COLOR_BROWN);
     drawMario(10,100, COLOR_WHITE);
-    
-    toggle_led = LED_GREEN | LED_RED;
-    play_note();
+
+
     color++;
     break;
   case 4:
+    fillRectangle(35, 75, 10, 10, COLOR_WHITE);
     drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
     fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    fillRectangle(30, 75, 10, 10, COLOR_BROWN);
+    fillRectangle(2, 75, 10, 10, COLOR_BROWN);
     drawMario(10,100, COLOR_WHITE);
+
     
-    toggle_led = 0;
     play_note();
     color = 1;
     break;
@@ -63,30 +63,76 @@ void firstScreen(){
   }  
 }
 
+void secondScreen(){ //This will draw LUIGI traversing through the plane 
+  static char color = 1;
+
+  switch(color){
+  case 1:
+    fillRectangle(2, 75, 10, 10, COLOR_WHITE);
+    drawString5x7(10,20, "IT'S ME LUIGI!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(125, 75, 10, 10, COLOR_BROWN);
+    drawLuigi(10,100, COLOR_WHITE);
+    
+  
+    color++;
+    break;
+  case 2:
+    fillRectangle(125, 75, 10, 10, COLOR_WHITE);
+    drawString5x7(10,20, "IT'S ME LUIGI!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(65, 75, 10, 10, COLOR_BROWN);
+    drawLuigi(10,100, COLOR_WHITE);
+    
+
+    color++;
+    break;
+  case 3:
+    fillRectangle(65, 75, 10, 10, COLOR_WHITE);
+    drawString5x7(10,20, "IT'S ME LUIGI!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(35, 75, 10, 10, COLOR_BROWN);
+    drawLuigi(10,100, COLOR_WHITE);
+
+
+    color++;
+    break;
+  case 4:
+    fillRectangle(35, 75, 10, 10, COLOR_WHITE);
+    drawString5x7(10,20, "IT'S ME LUIGI!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(2, 75, 10, 10, COLOR_BROWN);
+    drawLuigi(10,100, COLOR_WHITE);
+  
+    
+    play_note();
+    color = 1;
+    break;
+  default: break;
+  }  
+}
+
+
 void state_advance(){
   
   switch (switch_state){
   case 1:
+    clearScreen(COLOR_WHITE);
     firstScreen(); 
-    toggle_led = LED_GREEN;
+    toggle_led = LED_RED;
     play_note();
     break;
   case 2:
-    // drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
-    // fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    // fillRectangle(60, 75, 10, 10, COLOR_BROWN);
-    // drawMario(10,100, COLOR_WHITE);
-    
+    clearScreen(COLOR_WHITE);
+    secondScreen();
     toggle_led = LED_RED;
     play_note();
     break;
   case 3:
-    //drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
-    //fillRectangle(0, 120, 150, 60, COLOR_GREEN);
-    //fillRectangle(45, 75, 10, 10, COLOR_BROWN);
-    //drawMario(10,100, COLOR_WHITE);
-    
+    clearScreen(COLOR_BLACK);
+    drawString5x7(0,0,"WEAR YOUR FACEMASK!", COLOR_RED, COLOR_BLACK);
     toggle_led = LED_GREEN | LED_RED;
+    toggle_led = 0;
     play_note();
     break;
   case 4:
