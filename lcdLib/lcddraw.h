@@ -6,7 +6,7 @@
 #define lcddraw_included
 
 void drawMario(u_char column, u_char rows, u_int bgColorBGR);
-
+void drawLuigi(u_char column, u_char rows, u_int bgColorBGR);
 /** Draw single pixel at col, row 
  *
  *  \param col Column to draw to
