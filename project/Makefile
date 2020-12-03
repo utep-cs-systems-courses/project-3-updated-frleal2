@@ -2,7 +2,7 @@
 COMMON_OBJECTS =
 CPU            = msp430g2553
 CFLAGS         = -mmcu=${CPU} -Os -I../h
-LDFLAGS        = -L/lib -L/opt/ti/msp430_gcc/include
+LDFLAGS        = -L../lib -L/opt/ti/msp430_gcc/include
 
 #switch the compiler (for the internal make rules)
 CC             = msp430-elf-gcc
@@ -12,8 +12,8 @@ all:toy.elf
 
 #additional rules
 
-toy.elf: ${COMMON_OBJECTS} wdt_handler.o stateMachines.o switches.o led.o buzzer.o main.o  
-	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd -lp2sw
+toy.elf: ${COMMON_OBJECTS} p2_interrupt_handler.o wdt_handler.o stateMachines.o switches.o led.o buzzer.o main.o  
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd
 
 load: toy.elf
 	msp430loader.sh $^
