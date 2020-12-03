@@ -14,23 +14,87 @@ void state_init(){
   toggle_led = LED_GREEN | LED_RED;
   led_update();
 }
+void firstScreen(){
+  static char color = 1;
+
+  switch(color){
+  case 1:
+    drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(75, 75, 10, 10, COLOR_BROWN);
+    drawMario(10,100, COLOR_WHITE);
+     
+    toggle_led = LED_GREEN;
+    play_note();
+    color++;
+    break;
+  case 2:
+    clearScreen(COLOR_WHITE);
+    drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(60, 75, 10, 10, COLOR_BROWN);
+    drawMario(10,100, COLOR_WHITE);
+    
+    toggle_led = LED_RED;
+    play_note();
+    color++;
+    break;
+  case 3:
+    drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(45, 75, 10, 10, COLOR_BROWN);
+    drawMario(10,100, COLOR_WHITE);
+    
+    toggle_led = LED_GREEN | LED_RED;
+    play_note();
+    color++;
+    break;
+  case 4:
+    drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    fillRectangle(30, 75, 10, 10, COLOR_BROWN);
+    drawMario(10,100, COLOR_WHITE);
+    
+    toggle_led = 0;
+    play_note();
+    color = 1;
+    break;
+  default: break;
+  }  
+}
 
 void state_advance(){
+  
   switch (switch_state){
   case 1:
-    drawMario(50,50, COLOR_BLACK);
+    firstScreen(); 
     toggle_led = LED_GREEN;
     play_note();
     break;
   case 2:
+    // drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    // fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    // fillRectangle(60, 75, 10, 10, COLOR_BROWN);
+    // drawMario(10,100, COLOR_WHITE);
+    
     toggle_led = LED_RED;
     play_note();
     break;
   case 3:
+    //drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    //fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    //fillRectangle(45, 75, 10, 10, COLOR_BROWN);
+    //drawMario(10,100, COLOR_WHITE);
+    
     toggle_led = LED_GREEN | LED_RED;
     play_note();
     break;
   case 4:
+    //drawString5x7(10,20, "IT'S ME MARIO!", COLOR_RED, COLOR_WHITE);
+    // fillRectangle(0, 120, 150, 60, COLOR_GREEN);
+    // fillRectangle(20, 75, 10, 10, COLOR_BROWN);
+    //drawMario(10,100, COLOR_WHITE);
+    
     toggle_led = 0;
     play_note();
     break;
